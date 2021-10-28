@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: admin  
+    
+    volumes:
+      - mariadb_data:/var/lib/mysql   
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+volumes:
+  mariadb_data: {} 
